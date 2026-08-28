@@ -35,6 +35,7 @@ export default function Login() {
             setLoading(true);
             
             const response = await api.post<AuthResponse>('/auth/login', formData);
+            // TODO: Implement a secure way to store the token and user information
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));
             alert('Login successful! Redirecting to dashboard...');
@@ -85,7 +86,7 @@ export default function Login() {
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
             </form>
-            
+
             <p style={{ marginTop: '15px', textAlign: 'center' }}>
                 Don't have an account? <Link to="/register">Register</Link>
             </p>
