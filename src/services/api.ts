@@ -23,4 +23,21 @@ api.interceptors.request.use(
     }
 );
 
+api.interceptors.response.use(
+    // proceed with the 2xx responses
+    (response) => {
+    return response;
+    },
+    (error: AxiosError) => {
+        // handle 401 unauthorized errors
+        if (error.response?.status === 401) {
+            localStorage.removeItem("token");
+            
+            // redirect to the login page
+            window.location.href = "/login";
+        }
+        return Promise.reject(error);
+    }
+);
+
 export default api;
