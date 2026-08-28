@@ -29,9 +29,12 @@ api.interceptors.response.use(
     return response;
     },
     (error: AxiosError) => {
+
+        const isAuthRoute = error.config?.url?.includes("/auth/");
         // handle 401 unauthorized errors
-        if (error.response?.status === 401) {
+        if (error.response?.status === 401 && !isAuthRoute) {
             localStorage.removeItem("token");
+            localStorage.removeItem("user");
             
             // redirect to the login page
             window.location.href = "/login";
