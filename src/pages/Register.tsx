@@ -106,6 +106,18 @@ export default function Register() {
                 />
             </div>
 
+            <div style={{ marginBottom: '10px' }}>
+                <label htmlFor="confirmPassword">Confirm Password:</label>
+                <input
+                id="confirmPassword"
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+                />
+            </div>
+
             <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px', cursor: 'pointer' }}>
                 {loading ? 'Registering...' : 'Register'}
             </button>
