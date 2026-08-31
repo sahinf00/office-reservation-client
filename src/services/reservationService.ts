@@ -11,5 +11,14 @@ export const ReservationService = {
     getReservedDeskIdsForDate: async (date: string): Promise<number[]> => {
         const response = await api.get<number[]>(`/reservations/reserved-desks`, { params: { reservationDate: date } });
         return response.data;
+    },
+
+    getReservationsForCurrentUser: async (): Promise<ReservationResponse[]> => {
+        const response = await api.get<ReservationResponse[]>('/reservations/my-reservations');
+        return response.data;
+    },
+
+    cancelReservation: async (reservationId: number): Promise<void> => {
+        await api.delete(`/reservations/${reservationId}`);
     }
 }
