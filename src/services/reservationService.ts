@@ -9,7 +9,7 @@ export const ReservationService = {
     },
 
     getReservedDeskIdsForDate: async (date: string): Promise<number[]> => {
-        const response = await api.get<number[]>(`/reservations/reserved-desks`, { params: { date } });
+        const response = await api.get<number[]>(`/reservations/reserved-desks`, { params: { reservationDate: date } });
         return response.data;
     }
 }
