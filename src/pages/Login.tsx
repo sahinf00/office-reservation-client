@@ -1,9 +1,8 @@
 import react, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { isAxiosError } from 'axios';
-import api from "../services/api";
-import type { LoginRequest, AuthResponse } from "../types/auth";
-import type React from 'react';
+import { AuthService } from '../services/authService';
+import type { LoginRequest } from "../types/auth";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -33,13 +32,12 @@ export default function Login() {
 
         try {
             setLoading(true);
-            
-            const response = await api.post<AuthResponse>('/auth/login', formData);
+            const data = await AuthService.login(formData);
             // TODO: Implement a secure way to store the token and user information
-            localStorage.setItem('token', response.data.token);
-            localStorage.setItem('user', JSON.stringify(response.data.user));
-            alert('Login successful! Redirecting to dashboard...');
-            navigate('/dashboard');
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            alert('Login successful! Redirecting to desk selection menu...');
+            navigate('/desk-selection');
         } catch (err: unknown) {
             if (isAxiosError(err)) {
                 setError(err.response?.data?.message || 'An error occurred during login');

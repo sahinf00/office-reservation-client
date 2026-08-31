@@ -1,7 +1,7 @@
 import react, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { isAxiosError } from 'axios';
-import api from "../services/api";
+import { AuthService } from '../services/authService';
 import type { RegisterRequest } from "../types/auth";
 
 export default function Register() {
@@ -50,7 +50,7 @@ export default function Register() {
                 password: formData.password
             };
             
-            await api.post('/auth/register', payload);
+            await AuthService.register(payload);
             alert('Registration successful! Please log in.');
             navigate('/login');
         } catch (err: unknown) {
