@@ -63,7 +63,7 @@ export default function Login() {
                     name="email" 
                     value={formData.email} 
                     onChange={handleChange} 
-                    style={{ width: '100%', padding: '8px', marginTop: '4px' }} 
+                    style={{ width: '100%', padding: '8px', marginTop: '4px', boxSizing: 'border-box' }} 
                     required
                     />
                 </div>
@@ -75,12 +75,12 @@ export default function Login() {
                     name="password" 
                     value={formData.password} 
                     onChange={handleChange} 
-                    style={{ width: '100%', padding: '8px', marginTop: '4px' }} 
+                    style={{ width: '100%', padding: '8px', marginTop: '4px', paddingRight: '8px', boxSizing: 'border-box' }} 
                     required 
                     />
                 </div>
 
-                <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px', cursor: 'pointer' }}>
+                <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px', marginTop: '10px', cursor: 'pointer' }}>
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
             </form>

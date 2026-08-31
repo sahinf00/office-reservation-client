@@ -78,7 +78,7 @@ export default function Register() {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+                style={{ width: '100%', padding: '8px', marginTop: '4px', boxSizing: 'border-box' }}
                 />
             </div>
 
@@ -90,7 +90,7 @@ export default function Register() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+                style={{ width: '100%', padding: '8px', marginTop: '4px', boxSizing: 'border-box' }}
                 />
             </div>
 
@@ -102,7 +102,7 @@ export default function Register() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+                style={{ width: '100%', padding: '8px', marginTop: '4px', boxSizing: 'border-box' }}
                 />
             </div>
 
@@ -114,7 +114,7 @@ export default function Register() {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+                style={{ width: '100%', padding: '8px', marginTop: '4px', boxSizing: 'border-box' }}
                 />
             </div>
 
