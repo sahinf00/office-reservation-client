@@ -5,6 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
 import Layout from "./components/Layout";
 import { DeskSelection } from "./pages/DeskSelection";
+import { MyReservations } from "./pages/MyReservations";
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
         <Route element={<ProtectedRoute />}>
           <Route element={<Layout />}>
             <Route path="/desk-selection" element={<DeskSelection />} />
+            <Route path="/my-reservations" element={<MyReservations />} />
+
           </Route>
         </Route>
         
