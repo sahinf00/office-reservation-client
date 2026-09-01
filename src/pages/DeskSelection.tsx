@@ -11,11 +11,12 @@ export function DeskSelection() {
     const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
 
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
 
     // on loadup, fetch all floors and set the first floor as selected by default
     useEffect(() => {
         const fetchFloors = async () => {
+            setLoading(true);
             try {
                 const floorsData = await DeskService.getAllFloors();
                 setFloors(floorsData);
