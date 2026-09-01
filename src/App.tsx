@@ -3,6 +3,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import Layout from "./components/Layout";
 import { DeskSelection } from "./pages/DeskSelection";
 
 export default function App() {
@@ -15,7 +16,9 @@ export default function App() {
         </Route>
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/desk-selection" element={<DeskSelection />} />
+          <Route element={<Layout />}>
+            <Route path="/desk-selection" element={<DeskSelection />} />
+          </Route>
         </Route>
         
         <Route path="/" element={<Navigate to="/desk-selection" />} />
