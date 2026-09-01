@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { isAxiosError } from 'axios';
 import { AuthService } from '../services/authService';
@@ -10,7 +10,7 @@ export default function Login() {
         email: '',
         password: ''
     });
-    const [error, setError] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ export default function Login() {
 
     const handleSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault();
-        setError('');
+        setError(null);
 
         if (!formData.email || !formData.password) {
             setError('Email and password are required');

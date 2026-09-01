@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { isAxiosError } from 'axios';
 import { AuthService } from '../services/authService';
@@ -12,7 +12,7 @@ export default function Register() {
         password: '',
         confirmPassword: ''
     });
-    const [error, setError] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,7 @@ export default function Register() {
 
     const handleSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault();
-        setError('');
+        setError(null);
 
         if (!formData.fullName || !formData.email || !formData.password || !formData.confirmPassword) {
             setError('All fields are required');
