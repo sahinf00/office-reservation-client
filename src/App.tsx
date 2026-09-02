@@ -23,7 +23,13 @@ export default function App() {
 
           </Route>
         </Route>
-        
+
+        <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
+          <Route element={<Layout />}>
+            <Route path="/admin/floors" element={<div>Admin Floor Management (WIP)</div>} />
+          </Route>
+        </Route>
+
         <Route path="/" element={<Navigate to="/desk-selection" />} />
         <Route path="*" element={<Navigate to="/desk-selection" />} />
       </Routes>
