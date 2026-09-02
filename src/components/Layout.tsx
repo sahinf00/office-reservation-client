@@ -3,6 +3,9 @@ import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 export default function Layout() {
     const navigate = useNavigate();
+
+    const userJson = localStorage.getItem('user');
+    const user = userJson ? JSON.parse(userJson) : null;
     
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -24,6 +27,9 @@ export default function Layout() {
             >
                 <h3 style={{ margin: 0 }}>Desk Reservation System</h3>
                 <nav style= {{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    {user.roleName === 'ADMIN' && (
+                        <Link to="/admin/floors" style={{ color: '#ffeb3b', textDecoration: 'none' }}>Admin Floor Management</Link>
+                    )}
                     <Link to="/desk-selection" style={{ color: '#fff', textDecoration: 'none' }}>Desk Selection</Link>
                     <Link to="/my-reservations" style={{ color: '#fff', textDecoration: 'none' }}>My Reservations</Link>
                     <button onClick={handleLogout}
