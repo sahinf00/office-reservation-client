@@ -29,7 +29,7 @@ export interface PageResponse<T> {
 export interface ReservationFilterParams {
   page: number;
   size: number;
-  date?: string;         // YYYY-MM-DD format
+  reservationDate?: string;         // YYYY-MM-DD format
   floorId?: number | '';
   status?: string;       // 'CONFIRMED' | 'CANCELLED' | 'COMPLETED' | ''
 }
