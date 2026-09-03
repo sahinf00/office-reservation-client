@@ -30,6 +30,9 @@ export default function Layout() {
                     {user.roleName === 'ADMIN' && (
                         <Link to="/admin/floors" style={{ color: '#ffeb3b', textDecoration: 'none' }}>Admin Floor Management</Link>
                     )}
+                    {user.roleName === 'ADMIN' && (
+                        <Link to="/admin/reservations" style={{ color: '#ffeb3b', textDecoration: 'none' }}>Admin Reservations</Link>
+                    )}
                     <Link to="/desk-selection" style={{ color: '#fff', textDecoration: 'none' }}>Desk Selection</Link>
                     <Link to="/my-reservations" style={{ color: '#fff', textDecoration: 'none' }}>My Reservations</Link>
                     <button onClick={handleLogout}

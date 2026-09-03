@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import { DeskSelection } from "./pages/DeskSelection";
 import { MyReservations } from "./pages/MyReservations";
 import { AdminFloors } from "./pages/AdminFloors";
+import { AdminReservations } from "./pages/AdminReservations";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
           <Route element={<Layout />}>
             <Route path="/admin/floors" element={<AdminFloors />} />
+            <Route path="/admin/reservations" element={<AdminReservations />} />
           </Route>
         </Route>
 
