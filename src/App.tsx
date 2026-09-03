@@ -8,6 +8,7 @@ import { DeskSelection } from "./pages/DeskSelection";
 import { MyReservations } from "./pages/MyReservations";
 import { AdminFloors } from "./pages/AdminFloors";
 import { AdminReservations } from "./pages/AdminReservations";
+import { AdminAnalytics } from "./pages/AdminAnalytics";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route path="/admin/floors" element={<AdminFloors />} />
             <Route path="/admin/reservations" element={<AdminReservations />} />
+            <Route path="/admin/analytics" element={<AdminAnalytics />} />
           </Route>
         </Route>
 
