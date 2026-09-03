@@ -8,7 +8,7 @@ export const StatsService = {
     },
     
     getFloorOccupancyStats: async (date?: string): Promise<FloorOccupancyResponse[]> => {
-        const response = await api.get<FloorOccupancyResponse[]>('/api/stats/occupancy-by-floor', {
+        const response = await api.get<FloorOccupancyResponse[]>('/stats/occupancy-by-floor', {
             params: date ? { date } : {}
         })
         return response.data;
