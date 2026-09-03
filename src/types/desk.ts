@@ -7,6 +7,10 @@ export interface DeskResponse {
     floorId: number;
 }
 
+export interface DeskUI extends DeskResponse {
+    status: DeskStatus;
+}
+
 export interface FloorResponse {
     id: number;
     floorNumber: number;
@@ -14,6 +18,16 @@ export interface FloorResponse {
     desks: DeskResponse[];
 }
 
-export interface DeskUI extends DeskResponse {
-    status: DeskStatus;
+export interface CreateFloorRequest {
+    floorNumber: number;
+    name: string;
+}
+
+export interface CreateDeskRequest {
+    deskNumber: string;
+    floorId: number;
+}
+
+export interface UpdateDeskRequest {
+    deskNumber: string;
 }
