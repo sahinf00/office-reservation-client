@@ -97,8 +97,8 @@ export function AdminAnalytics() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={floorData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                
-                <XAxis dataKey="floorName" tick={{ fontSize: 12 }} />
+                {/* set interval={0} to avoid missing labels */}
+                <XAxis dataKey="floorName" interval={0} tick={{ fontSize: 12 }} />
                 <YAxis domain={[0, 100]} unit="%" />
                 <Tooltip formatter={(val: number) => [`%${val}`, 'Occupancy']} />
                 <Bar dataKey="occupancyRate" fill="#3b82f6" radius={[4, 4, 0, 0]} />
