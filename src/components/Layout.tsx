@@ -31,7 +31,7 @@ export default function Layout() {
                         <Link to="/admin/floors" style={{ color: '#ffeb3b', textDecoration: 'none' }}>Admin Floor Management</Link>
                     )}
                     {user.roleName === 'ADMIN' && (
-                        <Link to="/admin/reservations" style={{ color: '#ffeb3b', textDecoration: 'none' }}>Admin Reservations</Link>
+                        <Link to="/admin/reservations" style={{ color: '#ffeb3b', textDecoration: 'none' }}>All Reservations</Link>
                     )}
                     {user.roleName === 'ADMIN' && (
                         <Link to="/admin/analytics" style={{ color: '#ffeb3b', textDecoration: 'none' }}>Admin Analytics</Link>

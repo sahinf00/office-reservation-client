@@ -58,6 +58,12 @@ export function AdminReservations() {
         }
     };
 
+    const statusColorMap: Record<string, string> = {
+        'CONFIRMED': '#2e7d32',
+        'CANCELLED': '#c62828',
+        'COMPLETED': '#1565c0',
+    };
+
     const handleFloorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedFloorId(e.target.value ? Number(e.target.value) : '');
         setPage(0);
@@ -205,7 +211,7 @@ export function AdminReservations() {
                           fontSize: '12px',
                           fontWeight: 'bold',
                           backgroundColor: res.status === 'CONFIRMED' ? '#e8f5e9' : '#ffebee',
-                          color: res.status === 'CONFIRMED' ? '#2e7d32' : '#c62828',
+                          color: statusColorMap[res.status] || '#757575',
                         }}
                       >
                         {res.status}
