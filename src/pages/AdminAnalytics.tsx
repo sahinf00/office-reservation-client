@@ -6,8 +6,6 @@ import {
 import { StatsService } from '../services/statsService';
 import type { DashboardSummaryResponse, FloorOccupancyResponse } from '../types/stats';
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
-
 export function AdminAnalytics() {
   
     const [selectedDate, setSelectedDate] = useState<string>(
@@ -43,7 +41,7 @@ export function AdminAnalytics() {
     .filter(item => item.occupiedDesks > 0)
     .map((item, index) => ({
       ...item,
-      fill: COLORS[index % COLORS.length]
+      fill: `hsl(${(index * 360) / floorData.length}, 70%, 50%)` // dynamically assign colors based on index
     }));
 
   if (loading) return <div>Loading...</div>;
