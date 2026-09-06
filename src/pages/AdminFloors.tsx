@@ -111,7 +111,11 @@ export function AdminFloors() {
                         type="number"
                         placeholder="Floor Number"
                         value={newFloorNumber ?? ''}
-                        onChange={(e) => setNewFloorNumber(Number(e.target.value))}
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            // avoid converting empty string to zero, set to null instead
+                            setNewFloorNumber(val === '' ? null : Number(val));
+                        }}
                         required
                     />
                     <input
