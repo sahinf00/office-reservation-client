@@ -39,7 +39,7 @@ export function AdminFloors() {
 
     const handleCreateFloor = async (e: React.SubmitEvent) => {
         e.preventDefault();
-        if (!newFloorNumber || !newFloorName) return alert('Please provide both floor number and name');
+        if (newFloorNumber === null || newFloorNumber === undefined || !newFloorName) return alert('Please provide both floor number and name');
 
         try {
             const newFloor = await AdminService.createFloor({ floorNumber: newFloorNumber, name: newFloorName });
