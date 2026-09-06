@@ -110,7 +110,7 @@ export function AdminFloors() {
                     <input
                         type="number"
                         placeholder="Floor Number"
-                        value={newFloorNumber}
+                        value={newFloorNumber ?? ''}
                         onChange={(e) => setNewFloorNumber(Number(e.target.value))}
                         required
                     />
