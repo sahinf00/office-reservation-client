@@ -23,7 +23,7 @@ export function DeskSelection() {
                 if (floorsData.length > 0) {
                     setSelectedFloorId(floorsData[0].id);
                 }
-            } catch (err) {
+            } catch (err: any) {
                 setError( err.response?.data?.message || 'Failed to fetch floors');
             } finally {
                 setLoading(false);
@@ -40,7 +40,7 @@ export function DeskSelection() {
                 const reservedIds = await ReservationService.getReservedDeskIdsForDate(selectedDate);
                 setReservedDeskIds(reservedIds);
                 setSelectedDeskId(null); // reset selected desk when date changes
-            } catch (err) {
+            } catch (err: any) {
                 setError(err.response?.data?.message || 'Failed to fetch reserved desks');
             }
         };
@@ -59,7 +59,7 @@ export function DeskSelection() {
                 alert('Reservation successful!');
                 setReservedDeskIds((prev) => [...prev, selectedDeskId]);
                 setSelectedDeskId(null); // reset selected desk after reservation
-            } catch (err) {
+            } catch (err: any) {
                 setError(err.response?.data?.message || 'Failed to create reservation');
             }
         }

@@ -26,7 +26,7 @@ export function AdminAnalytics() {
                 ]);
                 setSummary(summaryRes);
                 setFloorData(floorRes);
-            } catch (err) {
+            } catch (err: any) {
                     setError( err.response?.data?.message ||'Failed to fetch analytics data');
             } finally {
                 setLoading(false);
@@ -98,7 +98,7 @@ export function AdminAnalytics() {
                 {/* set interval={0} to avoid missing labels */}
                 <XAxis dataKey="floorName" interval={0} tick={{ fontSize: 12 }} />
                 <YAxis domain={[0, 100]} unit="%" />
-                <Tooltip formatter={(val: number) => [`%${val}`, 'Occupancy']} />
+                <Tooltip formatter={(val: any) => [`%${val}`, 'Occupancy']} />
                 <Bar dataKey="occupancyRate" fill="#3b82f6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -121,7 +121,7 @@ export function AdminAnalytics() {
                     outerRadius={80}
                     label={({ payload }) => `${payload?.occupiedDesks} desk(s)`}
                   />
-                  <Tooltip formatter={(val: number) => [`${val} desk(s)`, 'Occupied Desks']} />
+                  <Tooltip formatter={(val: any) => [`${val} desk(s)`, 'Occupied Desks']} />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>

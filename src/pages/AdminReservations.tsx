@@ -27,7 +27,7 @@ export function AdminReservations() {
       try {
         const floorData = await DeskService.getAllFloors();
         setFloors(floorData);
-      } catch (err) {
+      } catch (err: any) {
         console.error('Kat listesi alınamadı', err);
       }
     };
