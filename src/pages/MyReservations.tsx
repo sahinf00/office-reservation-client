@@ -15,7 +15,7 @@ export function MyReservations() {
             try {
                 const reservationsData = await ReservationService.getReservationsForCurrentUser();
                 setReservations(reservationsData);
-            } catch (err) {
+            } catch (err: any) {
                 setError(err.response?.data?.message || 'Failed to fetch reservations');
             } finally {
                 setLoading(false);
@@ -37,7 +37,7 @@ export function MyReservations() {
             prev.map((res) =>
                 res.id === reservationId ? { ...res, status: 'CANCELLED' } : res
             ));
-        } catch (err) {
+        } catch (err: any) {
             setError(err.response?.data?.message || 'Failed to cancel reservation');
         } finally {
             setCancellingReservationId(null);

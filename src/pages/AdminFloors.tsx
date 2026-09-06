@@ -27,7 +27,7 @@ export function AdminFloors() {
                 if (floors.length > 0) {
                     setSelectedFloorId(floors[0].id);
                 }
-            } catch (err) {
+            } catch (err: any) {
                 setError( err.response?.data?.message || 'Failed to fetch floors');
             } finally {
                 setLoading(false);
@@ -47,7 +47,7 @@ export function AdminFloors() {
             setSelectedFloorId(newFloor.id);
             setNewFloorNumber(null);
             setNewFloorName('');
-        } catch (err) {
+        } catch (err: any) {
             alert(err.response?.data?.message || 'Failed to create floor');
         }
     };
@@ -65,7 +65,7 @@ export function AdminFloors() {
                     : floor
             ));
             setNewDeskNumber('');
-        } catch (err) {
+        } catch (err: any) {
             alert(err.response?.data?.message || 'Failed to create desk');
         }
     };
@@ -84,7 +84,7 @@ export function AdminFloors() {
                 ),
                 }))
             );
-        } catch (err) {
+        } catch (err: any) {
             alert(err.response?.data?.message || 'Failed to delete desk');
         }
     };

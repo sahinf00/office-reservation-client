@@ -26,7 +26,7 @@ export function AdminAnalytics() {
                 ]);
                 setSummary(summaryRes);
                 setFloorData(floorRes);
-            } catch (err) {
+            } catch (err: any) {
                     setError( err.response?.data?.message ||'Failed to fetch analytics data');
             } finally {
                 setLoading(false);
