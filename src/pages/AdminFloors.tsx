@@ -39,7 +39,7 @@ export function AdminFloors() {
 
     const handleCreateFloor = async (e: React.SubmitEvent) => {
         e.preventDefault();
-        if (!newFloorNumber || !newFloorName) return alert('Please provide both floor number and name');
+        if (newFloorNumber === null || newFloorNumber === undefined || !newFloorName) return alert('Please provide both floor number and name');
 
         try {
             const newFloor = await AdminService.createFloor({ floorNumber: newFloorNumber, name: newFloorName });
@@ -111,7 +111,11 @@ export function AdminFloors() {
                         type="number"
                         placeholder="Floor Number"
                         value={newFloorNumber ?? ''}
-                        onChange={(e) => setNewFloorNumber(Number(e.target.value))}
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            // avoid converting empty string to zero, set to null instead
+                            setNewFloorNumber(val === '' ? null : Number(val));
+                        }}
                         required
                     />
                     <input
